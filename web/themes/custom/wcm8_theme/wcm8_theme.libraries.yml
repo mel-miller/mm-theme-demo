@@ -1,0 +1,5 @@
+global:
+  css:
+    theme:
+      //www.osu.edu/assets/fonts/webfonts.css: { external: true }
+      css/main.css: {}
