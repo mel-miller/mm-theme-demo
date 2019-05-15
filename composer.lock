@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb146689a50b29a936adc0e5483fdeb6",
+    "content-hash": "5fa856fbc8f4f971c32d718ccfa1a279",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2827,6 +2827,27 @@
                 "xml"
             ],
             "time": "2019-03-10T11:41:28+00:00"
+        },
+        {
+            "name": "mel-miller/it-osu-ds",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mel-miller/it-osu-ds.git",
+                "reference": "e641fc88b25bef1fa03cd4ae1a04d80f960b2562"
+            },
+            "type": "design-system",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "M Miller",
+                    "email": "miller.2676@gmail.com"
+                }
+            ],
+            "description": "IT@OSU design system using Pattern Lab",
+            "time": "2019-05-13T23:21:19+00:00"
         },
         {
             "name": "nikic/php-parser",
