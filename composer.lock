@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc40dc7a1cb4fc5058df38b2e5e7d1af",
+    "content-hash": "b40a96709fff8d7e9765f49bcc001d1e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -580,6 +580,45 @@
             ],
             "description": "Provides a way to patch Composer packages.",
             "time": "2018-05-11T18:00:16+00:00"
+        },
+        {
+            "name": "davidbarratt/custom-installer",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davidbarratt/custom-installer.git",
+                "reference": "90009113204b8b6257ead91866cc5cddc6876834"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davidbarratt/custom-installer/zipball/90009113204b8b6257ead91866cc5cddc6876834",
+                "reference": "90009113204b8b6257ead91866cc5cddc6876834",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "~1.0"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0@dev",
+                "phpunit/phpunit": "~4.1",
+                "squizlabs/php_codesniffer": "~2.5"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "DavidBarratt\\CustomInstaller\\CustomInstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "DavidBarratt\\CustomInstaller\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Install custom types into custom locations.",
+            "homepage": "https://github.com/davidbarratt/custom-installer",
+            "time": "2016-01-23T14:33:27+00:00"
         },
         {
             "name": "dflydev/dot-access-configuration",
@@ -2881,11 +2920,14 @@
         },
         {
             "name": "mel-miller/it-osu-ds",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mel-miller/it-osu-ds.git",
-                "reference": "e641fc88b25bef1fa03cd4ae1a04d80f960b2562"
+                "reference": "fe6881668ee502314f8648bcd3483a0b371d10f5"
+            },
+            "require": {
+                "composer/installers": "^1.6"
             },
             "type": "design-system",
             "license": [
@@ -2898,7 +2940,7 @@
                 }
             ],
             "description": "IT@OSU design system using Pattern Lab",
-            "time": "2019-05-13T23:21:19+00:00"
+            "time": "2019-05-15T19:26:34+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -7651,6 +7693,7 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
+        "davidbarratt/custom-installer": 15,
         "drupal/simple_block": 10
     },
     "prefer-stable": true,
