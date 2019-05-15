@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b40a96709fff8d7e9765f49bcc001d1e",
+    "content-hash": "17c56bb88172484526d80392b975712c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -580,45 +580,6 @@
             ],
             "description": "Provides a way to patch Composer packages.",
             "time": "2018-05-11T18:00:16+00:00"
-        },
-        {
-            "name": "davidbarratt/custom-installer",
-            "version": "1.0.0-alpha2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/davidbarratt/custom-installer.git",
-                "reference": "90009113204b8b6257ead91866cc5cddc6876834"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/davidbarratt/custom-installer/zipball/90009113204b8b6257ead91866cc5cddc6876834",
-                "reference": "90009113204b8b6257ead91866cc5cddc6876834",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "~1.0"
-            },
-            "require-dev": {
-                "composer/composer": "~1.0@dev",
-                "phpunit/phpunit": "~4.1",
-                "squizlabs/php_codesniffer": "~2.5"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "DavidBarratt\\CustomInstaller\\CustomInstallerPlugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "DavidBarratt\\CustomInstaller\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Install custom types into custom locations.",
-            "homepage": "https://github.com/davidbarratt/custom-installer",
-            "time": "2016-01-23T14:33:27+00:00"
         },
         {
             "name": "dflydev/dot-access-configuration",
@@ -2920,11 +2881,17 @@
         },
         {
             "name": "mel-miller/it-osu-ds",
-            "version": "0.0.2",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mel-miller/it-osu-ds.git",
-                "reference": "fe6881668ee502314f8648bcd3483a0b371d10f5"
+                "reference": "4d4e6ae903e6460a7cdd84ec855298e4abb28f6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mel-miller/it-osu-ds/zipball/4d4e6ae903e6460a7cdd84ec855298e4abb28f6d",
+                "reference": "4d4e6ae903e6460a7cdd84ec855298e4abb28f6d",
+                "shasum": ""
             },
             "require": {
                 "composer/installers": "^1.6"
@@ -2940,7 +2907,11 @@
                 }
             ],
             "description": "IT@OSU design system using Pattern Lab",
-            "time": "2019-05-15T19:26:34+00:00"
+            "support": {
+                "source": "https://github.com/mel-miller/it-osu-ds/tree/develop",
+                "issues": "https://github.com/mel-miller/it-osu-ds/issues"
+            },
+            "time": "2019-05-15T20:08:34+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2992,6 +2963,48 @@
                 "php"
             ],
             "time": "2019-02-16T20:54:15+00:00"
+        },
+        {
+            "name": "oomphinc/composer-installers-extender",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oomphinc/composer-installers-extender.git",
+                "reference": "ca1c4b16b0905c81d1e77e608f36a2eff1a56f56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oomphinc/composer-installers-extender/zipball/ca1c4b16b0905c81d1e77e608f36a2eff1a56f56",
+                "reference": "ca1c4b16b0905c81d1e77e608f36a2eff1a56f56",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "composer/installers": "^1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "OomphInc\\ComposerInstallersExtender\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "OomphInc\\ComposerInstallersExtender\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Beemsterboer",
+                    "email": "stephen@oomphinc.com",
+                    "homepage": "https://github.com/balbuf"
+                }
+            ],
+            "description": "Extend the composer/installers plugin to accept any arbitrary package type.",
+            "homepage": "http://www.oomphinc.com/",
+            "time": "2017-03-31T16:57:39+00:00"
         },
         {
             "name": "pantheon-systems/quicksilver-pushback",
@@ -7693,7 +7706,6 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-        "davidbarratt/custom-installer": 15,
         "drupal/simple_block": 10
     },
     "prefer-stable": true,
