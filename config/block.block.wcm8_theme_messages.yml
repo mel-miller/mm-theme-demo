@@ -1,0 +1,22 @@
+uuid: dbc74c33-1454-4366-b2ac-638af2928de2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wcm8_theme
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: wcm8_theme_messages
+theme: wcm8_theme
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

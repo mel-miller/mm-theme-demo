@@ -1,0 +1,22 @@
+uuid: 72387589-1107-45f3-8e0e-73122a6b2845
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - wcm8_theme
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: wcm8_theme_breadcrumbs
+theme: wcm8_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
