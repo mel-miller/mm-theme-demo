@@ -5,141 +5,198 @@
  * Functions to support theming in the wcm8_theme theme.
  */
 
-/**
- * Implements hook_preprocess_HOOK() for html.html.twig.
- */
-function wcm8_theme_preprocess_html(array &$variables) {
-  /* Add class to html tag */
-  //$variables['html_attributes']->addClass('no-js');
+ /**
+  * Adds additional theme settings.
+  */
+ function wcm8_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id = NULL) {
+   // Work-around for a core bug affecting admin themes. See issue #943212.
+   if (isset($form_id)) {
+     return;
+   }
 
-  // Don't display the site name twice on the front page (and potentially others)
-  /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
-    $variables['head_title'] = $variables['head_title_array']['name'];
-  }*/
-}
+   $form['theme_customization'] = array (
+     '#type'     => 'fieldset',
+     '#title'    => t('Theme Customization'),
+     '#markup'   => t('Customize the look and feel of the site.')
+   );
 
-/**
- * Implements hook_page_attachments_alter().
- */
-function wcm8_theme_page_attachments_alter(array &$page) {
-  // Tell IE to use latest rendering engine (not to use compatibility mode).
-  /*$ie_edge = [
-    '#type' => 'html_tag',
-    '#tag' => 'meta',
-    '#attributes' => [
-    'http-equiv' => 'X-UA-Compatible',
-    'content' => 'IE=edge',
-    ],
+   $form['theme_customization']['header'] = array(
+     '#type'          => 'fieldset',
+     '#title'         => t('Header')
+   );
+
+   $navbar_color_options = [
+     'light' => t('Light'),
+     'dark'  => t('Dark')
+   ];
+
+   $form['theme_customization']['header']['osu_navbar_color'] = array(
+     '#type'          => 'radios',
+     '#title'         => t('OSU Navbar Color'),
+     '#default_value' => theme_get_setting('osu_navbar_color'),
+     '#options'       => $navbar_color_options
+   );
+
+  $masthead_variant_options = [
+    'standard' => t('Standard'),
+    'slim'     => t('Slim')
   ];
-  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
-}
+
+  $form['theme_customization']['header']['masthead_variant'] = array(
+    '#type'          => 'radios',
+    '#title'         => t('Masthead Variant'),
+    '#default_value' => theme_get_setting('masthead_variant'),
+    '#options'       => $masthead_variant_options
+  );
+
+   $masthead_color_options = [
+     'dk-gray' => t('Dark Gray'),
+     'md-gray' => t('Medium Gray'),
+     'lt-gray' => t('Light Gray'),
+     'white'   => t('White')
+   ];
+
+   $form['theme_customization']['header']['masthead_color'] = array(
+     '#type'          => 'radios',
+     '#title'         => t('Masthead Color'),
+     '#default_value' => theme_get_setting('masthead_color'),
+     '#options'       => $masthead_color_options
+   );
+
+   $form['theme_customization']['footer'] = array(
+     '#type'          => 'fieldset',
+     '#title'         => t('Footer')
+   );
+
+   $footer_color_options = [
+     'dk-gray' => t('Dark Gray'),
+     'md-gray' => t('Medium Gray'),
+     'lt-gray' => t('Light Gray'),
+     'white'   => t('White')
+   ];
+
+   $form['theme_customization']['footer']['footer_color'] = array(
+     '#type'          => 'radios',
+     '#title'         => t('Footer Color'),
+     '#default_value' => theme_get_setting('footer_color'),
+     '#options'       => $footer_color_options
+   );
+
+ }
+
+ /**
+  * Clear caches when settings change.
+  */
+ function wcm8_theme_settings_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+   drupal_flush_all_caches();
+ }
+
+ /**
+  * Implements hook_preprocess().
+  */
+ function wcm8_theme_preprocess(array &$variables, $hook) {
+   //all-purpose variables
+   $variables['base_path'] = base_path();
+
+   //theme setting variables
+   $variables['osu_navbar_color'] = theme_get_setting('osu_navbar_color');
+   $variables['masthead_variant'] = theme_get_setting('masthead_variant');
+   $variables['masthead_color'] = theme_get_setting('masthead_color');
+   $variables['footer_color'] = theme_get_setting('footer_color');
+
+   // Load the site name out of configuration.
+   $config = \Drupal::config('system.site');
+   $variables['site_name'] = $config->get('name');
+
+   // Load variables from Site Information module.
+   $siteinfo_config = \Drupal::config('wcm8_siteinfo.settings');
+   $siteinfo_vars = [
+     'site_name_prefix',
+     'admin_link',
+     'footer_text',
+     'address_1',
+     'address_2',
+     'city',
+     'state',
+     'zip',
+     'phone',
+     'fax',
+     'contact_email',
+     'twitter',
+     'facebook',
+     'linkedin',
+     'googleplus',
+     'youtube',
+     'instagram',
+     'photos'
+   ];
+   foreach ($siteinfo_vars as $siteinfo_var) {
+     $variables[$siteinfo_var] = $siteinfo_config->get($siteinfo_var);
+   }
+ }
 
 /**
- * Implements hook_preprocess_page() for page.html.twig.
- */
-function wcm8_theme_preprocess_page(array &$variables) {
-
+* Implements hook_preprocess_html().
+*/
+function wcm8_theme_preprocess_html(array &$variables) {
+  $variables['attributes']['class'][] = 'footer-color--' . theme_get_setting('footer_color');
+  // add node id and type to body classes
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    $variables['attributes']['class'][] = 'page-node';
+    $variables['attributes']['class'][] = 'page-node--' . $node->id();
+    $variables['attributes']['class'][] = 'node-type--' . $node->bundle();
+  }
 }
 
-/**
- * Implements hook_theme_suggestions_page_alter().
- */
-function wcm8_theme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+ /**
+  * Implements hook_preprocess_paragraph().
+  */
+ function wcm8_theme_preprocess_paragraph(array &$variables, $hook) {
+  /** @var \Drupal\paragraphs\Entity\Paragraph $paragraph */
+  $paragraph = $variables['paragraph'];
+  $paragraphType = $paragraph->bundle();
+  $paragraphId = $paragraph->id();
 
-}
+  //provide vars to be used as necessary
+  $variables['paragraph_type'] = $paragraphType;
+  $variables['paragraph_id'] = $paragraphId;
 
-/**
- * Implements hook_theme_suggestions_node_alter().
- */
-function wcm8_theme_theme_suggestions_node_alter(array &$suggestions, array $variables) {
-  /*$node = $variables['elements']['#node'];
+  //get value of header level from accordion-group and use it in accordion-item
+  if ($paragraphType == 'accordion_item') {
+    $parent = $paragraph->getParentEntity();
+    $variables['parent_paragraph_id'] = $parent->id();
+    $variables['accordion_heading_level'] = $parent->get('field_heading_level')->value;
+  }
 
-  if ($variables['elements']['#view_mode'] == "full") {
+  //provide vars for text_with_image paragraph type
+  if ($paragraphType == 'text_with_image') {
+    $variables['image_position'] = $paragraph->get('field_image_position')->value;
+    $variables['image_size'] = $paragraph->get('field_image_size')->value;
+  }
 
-  }*/
-}
-
-/**
- * Implements hook_preprocess_HOOK() for Block document templates.
- */
-function wcm8_theme_preprocess_block(array &$variables) {
-
-}
-
-/**
- * Implements hook_theme_suggestions_field_alter().
- */
-function wcm8_theme_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-  /*$element = $variables['element'];
-  $suggestions[] = 'field__' . $element['#view_mode'];
-  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
-}
-
-/**
- * Implements hook_theme_suggestions_field_alter().
- */
-function wcm8_theme_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
-  /*$element = $variables['element'];
-  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
-    $suggestions[] = 'fieldset__form_composite';
-  }*/
-}
-
-/**
- * Implements hook_preprocess_node().
- */
-function wcm8_theme_preprocess_node(array &$variables) {
-  // Default to turning off byline/submitted.
-  //$variables['display_submitted'] = FALSE;
-}
-
-/**
- * Implements hook_theme_suggestions_views_view_alter().
- */
-function wcm8_theme_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
-
-}
-
-/**
- * Implements hook_preprocess_form().
- */
-function wcm8_theme_preprocess_form(array &$variables) {
-  //$variables['attributes']['novalidate'] = 'novalidate';
-}
-
-/**
- * Implements hook_preprocess_select().
- */
-function wcm8_theme_preprocess_select(array &$variables) {
-  //$variables['attributes']['class'][] = 'select-chosen';
+  //provide vars for callout paragraphs
+  if ($paragraphType == 'callout') {
+    $calloutType = $paragraph->get('field_callout_type')->value;
+    $variables['callout_type'] = str_replace("_", "-", $calloutType);
+    if ($calloutType == 'caution') {
+      $variables['callout_icon'] = 'fa-exclamation';
+    } else if ($calloutType == 'ux_tip') {
+      $variables['callout_icon'] = 'fa-asterisk';
+    }
+  }
 }
 
 /**
  * Implements hook_preprocess_field().
  */
-function wcm8_theme_preprocess_field(array &$variables, $hook) {
-  /*switch ($variables['element']['#field_name']) {
-  }*/
-}
+ function wcm8_theme_preprocess_field(array &$variables, $hook) {
+   if ($node = \Drupal::request()->attributes->get('node')) {
+     //provide nid to field templates
+     $nid = $node->id();
+     $variables['nid'] = $nid;
 
-/**
- * Implements hook_preprocess_details().
- */
-function wcm8_theme_preprocess_details(array &$variables) {
-  /*$variables['attributes']['class'][] = 'details';
-  $variables['summary_attributes']['class'] = 'summary';*/
-}
-
-/**
- * Implements hook_theme_suggestions_details_alter().
- */
-function wcm8_theme_theme_suggestions_details_alter(array &$suggestions, array $variables) {
-
-}
-
-/**
- * Implements hook_preprocess_menu_local_task().
- */
-function wcm8_theme_preprocess_menu_local_task(array &$variables) {
-  //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
-}
+     //provide node alias to field templates
+     $nodeAlias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$nid);
+     $variables['node_alias'] = $nodeAlias;
+   }
+ }
