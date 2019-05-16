@@ -1,0 +1,1 @@
+!function(t,i){Drupal.behaviors.social={attach:function(i,a){"use strict";var e=t(".social-media__item").length;t(".social-media__list").addClass("count-"+e),t(i).find("#social-media-block").each(function(){7===e?t("<br/>").insertAfter(".social-media__item--4"):6===e&&t("<br/>").insertAfter(".social-media__item--3")})}}}(jQuery);

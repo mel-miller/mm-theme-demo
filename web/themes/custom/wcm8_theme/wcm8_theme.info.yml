@@ -1,0 +1,44 @@
+name: WCM8 Theme
+type: theme
+description: 'Base theme for WCM8'
+package: WCM8
+core: 8.x
+libraries:
+  - wcm8_theme/global
+
+base theme: stable
+
+regions:
+  header: Header
+  primary_menu: Primary Menu
+  hero: Hero
+  breadcrumb: Breadcrumbs
+  content: Content
+  sidebar_first: Sidebar first
+  sidebar_second: Sidebar second
+  content_after: Content After
+  pre_footer: Pre-Footer
+  footer: Footer
+
+component-libraries:
+  base:
+    paths:
+      - libraries/it-osu-ds/00-base
+  atoms:
+    paths:
+      - libraries/it-osu-ds/01-atoms
+#   molecules:
+#     paths:
+#       - libraries/it-osu-ds/02-molecules
+#   organisms:
+#     paths:
+#       - libraries/it-osu-ds/03-organisms
+#   templates:
+#     paths:
+#       - libraries/it-osu-ds/04-templates
+#   pages:
+#     paths:
+#       - libraries/it-osu-ds/05-pages
+#   drupal:
+#     paths:
+#       - libraries/it-osu-ds/06-drupal

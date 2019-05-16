@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+
+libraries/it-osu-ds/components
+libraries/it-osu-ds/pattern-lab
+libraries/it-osu-ds/scripts
+libraries/it-osu-ds/*.json
+libraries/it-osu-ds/*.js
+libraries/it-osu-ds/*.lock
+libraries/it-osu-ds/*.md
+libraries/it-osu-ds/.gitignore
