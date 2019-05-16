@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "447db287c518be34c8225a2843e4f101",
+    "content-hash": "b627efb9587da26222dbeb0c92a3ae4a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2881,16 +2881,16 @@
         },
         {
             "name": "mel-miller/it-osu-ds",
-            "version": "0.0.5",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mel-miller/it-osu-ds.git",
-                "reference": "8eabacdc1229d719e6eea7571d569260e09b0985"
+                "reference": "9685054550a343ca28b17712be10fb4e92e82df3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mel-miller/it-osu-ds/zipball/8eabacdc1229d719e6eea7571d569260e09b0985",
-                "reference": "8eabacdc1229d719e6eea7571d569260e09b0985",
+                "url": "https://api.github.com/repos/mel-miller/it-osu-ds/zipball/9685054550a343ca28b17712be10fb4e92e82df3",
+                "reference": "9685054550a343ca28b17712be10fb4e92e82df3",
                 "shasum": ""
             },
             "require": {
@@ -2908,10 +2908,10 @@
             ],
             "description": "IT@OSU design system using Pattern Lab",
             "support": {
-                "source": "https://github.com/mel-miller/it-osu-ds/tree/0.0.5",
+                "source": "https://github.com/mel-miller/it-osu-ds/tree/0.0.7",
                 "issues": "https://github.com/mel-miller/it-osu-ds/issues"
             },
-            "time": "2019-05-15T22:42:21+00:00"
+            "time": "2019-05-16T03:28:18+00:00"
         },
         {
             "name": "nikic/php-parser",
