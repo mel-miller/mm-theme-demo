@@ -24,9 +24,9 @@ component-libraries:
   base:
     paths:
       - libraries/it-osu-ds/00-base
-  # atoms:
-  #   paths:
-  #     - libraries/it-osu-ds/01-atoms
+  atoms:
+    paths:
+      - libraries/it-osu-ds/01-atoms
 #   molecules:
 #     paths:
 #       - libraries/it-osu-ds/02-molecules
