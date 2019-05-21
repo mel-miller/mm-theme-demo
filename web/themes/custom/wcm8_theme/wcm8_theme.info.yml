@@ -27,9 +27,9 @@ component-libraries:
   atoms:
     paths:
       - libraries/it-osu-ds/01-atoms
-#   molecules:
-#     paths:
-#       - libraries/it-osu-ds/02-molecules
+  molecules:
+    paths:
+      - libraries/it-osu-ds/02-molecules
 #   organisms:
 #     paths:
 #       - libraries/it-osu-ds/03-organisms
