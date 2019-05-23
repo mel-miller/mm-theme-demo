@@ -2,5 +2,5 @@ global:
   css:
     theme:
       //www.osu.edu/assets/fonts/webfonts.css: { external: true }
-      libraries/it-osu-ds/dist/css/style.css: {}
+      libraries/it-osu-ds/css/style.css: {}
       css/main.css: {}

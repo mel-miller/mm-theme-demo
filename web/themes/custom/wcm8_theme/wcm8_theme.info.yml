@@ -30,9 +30,9 @@ component-libraries:
   molecules:
     paths:
       - libraries/it-osu-ds/02-molecules
-#   organisms:
-#     paths:
-#       - libraries/it-osu-ds/03-organisms
+  organisms:
+    paths:
+      - libraries/it-osu-ds/03-organisms
 #   templates:
 #     paths:
 #       - libraries/it-osu-ds/04-templates
