@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab7722fd181c338112c26b2b21eae835",
+    "content-hash": "88de5bf0a9df17020a845736d24d8a83",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2963,6 +2963,24 @@
                 "php"
             ],
             "time": "2019-02-16T20:54:15+00:00"
+        },
+        {
+            "name": "ocio_odee_web/wcm8_siteinfo",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://code.osu.edu/ocio_odee_web/wcm8_siteinfo",
+                "reference": "6a10c513f7ca4568ce43be8af9ff639365cddda3"
+            },
+            "require": {
+                "composer/installers": "^1.5"
+            },
+            "type": "drupal-module",
+            "license": [
+                "None"
+            ],
+            "description": "Adds additional site configuration fields such as contact info and social media links.",
+            "time": "2018-12-19T19:05:48+00:00"
         },
         {
             "name": "oomphinc/composer-installers-extender",
