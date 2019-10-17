@@ -11,6 +11,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/mel-miller/it-osu-ds.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://code.osu.edu/ocio_odee_web/wcm8_siteinfo"
         }
     ],
     "require": {
@@ -28,7 +32,8 @@
         "drupal/simple_block": "^1.0@beta",
         "drush-ops/behat-drush-endpoint": "^9.3",
         "drush/drush": "~8",
-        "mel-miller/it-osu-ds": "^0.0.7",
+        "mel-miller/it-osu-ds": "^0.0.8",
+        "ocio_odee_web/wcm8_siteinfo": "^0.0.1",
         "oomphinc/composer-installers-extender": "^1.1",
         "pantheon-systems/quicksilver-pushback": "~1",
         "rvtraveller/qs-composer-installer": "^1.1",

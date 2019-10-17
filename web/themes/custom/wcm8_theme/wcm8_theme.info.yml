@@ -27,12 +27,12 @@ component-libraries:
   atoms:
     paths:
       - libraries/it-osu-ds/01-atoms
-#   molecules:
-#     paths:
-#       - libraries/it-osu-ds/02-molecules
-#   organisms:
-#     paths:
-#       - libraries/it-osu-ds/03-organisms
+  molecules:
+    paths:
+      - libraries/it-osu-ds/02-molecules
+  organisms:
+    paths:
+      - libraries/it-osu-ds/03-organisms
 #   templates:
 #     paths:
 #       - libraries/it-osu-ds/04-templates

@@ -1,0 +1,22 @@
+site_name_prefix: 'Department of'
+admin_link: 0
+footer_text:
+  value: ''
+  format: filtered_html
+address_1: '100 Mount Hall'
+address_2: '1050 Carmack Road'
+city: Columbus
+state: OH
+zip: '43210'
+phone: 614-555-5555
+fax: ''
+contact_email: sitename@osu.edu
+twitter: 'https://twitter.com'
+facebook: 'https://facebook.com'
+linkedin: 'https://linkedin.com'
+googleplus: 'https://plus.google.com'
+youtube: 'https://youtube.com'
+instagram: 'https://instagram.com'
+photos: 'https://www.flickr.com'
+_core:
+  default_config_hash: EbOVTfPpuZvlVYb5QDU9QE23kC9c07QuIAQyKF4LQSI

@@ -14,29 +14,12 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // Configuration.
 var config = {};
-config.pl = {
-  removeFiles: [
-    'libraries/it-osu-ds/components',
-    'libraries/it-osu-ds/pattern-lab',
-    'libraries/it-osu-ds/scripts',
-    'libraries/it-osu-ds/*.json',
-    'libraries/it-osu-ds/*.js',
-    'libraries/it-osu-ds/*.lock',
-    'libraries/it-osu-ds/*.md',
-    'libraries/it-osu-ds/.gitignore',
-  ],
-};
+
 config.sass = {
   srcFiles: 'sass/main.scss',
   watchFiles: ['sass/main.scss', 'sass/**/*.scss'],
   destDir: 'css',
 };
-
-// Delete unnecessary PL files.
-function cleanPl(done) {
-  return del(config.pl.removeFiles);
-  done();
-}
 
 // CSS task.
 function css(done) {
@@ -53,5 +36,4 @@ function css(done) {
   done();
 }
 
-exports.cleanPl = cleanPl;
 exports.css = css;

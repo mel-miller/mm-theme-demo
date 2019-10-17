@@ -1,0 +1,22 @@
+uuid: 9c689f3f-cde7-4fb8-8191-6fa7120c2719
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - wcm8_theme
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: wcm8_theme_help
+theme: wcm8_theme
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
